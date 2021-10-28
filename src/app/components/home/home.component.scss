@@ -1,0 +1,49 @@
+/*
+   CUIDADO , UN ESTILO GLOBAL CON SCSS Puede afectar otras paginas con el mismo
+   nombre de clase , es preferible usar un referente como class="home-component", Con SCSS
+   Permite estructurar los estilos uno dentro de otro. Respetando asi la jerarquia
+.container {
+  padding: 20px;
+  width: 100%;
+}
+.row {
+  height: auto;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.title {
+  padding: 10px;
+} */
+
+.home-component{
+  padding: 20px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  .row {
+    height: auto;
+    padding: 10px 0;
+    margin: 10px 0;
+    .title {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 60px;
+      padding-right: 60px;
+      display: flex;
+      flex-direction: row;
+      h1{
+        margin-right: auto;
+        color: white;
+        font-size: 24px;
+        font-family: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2);
+      }
+      h1:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
