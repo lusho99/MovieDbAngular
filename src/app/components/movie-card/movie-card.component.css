@@ -1,0 +1,45 @@
+.card__item {
+  padding: 10px;
+  height: 100%;
+  width: 350px;
+  padding-bottom: 3em;
+  background-color: whitesmoke;
+}
+.card__item:hover {
+  -webkit-box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
+-moz-box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
+box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
+cursor: pointer;
+}
+.card__content {
+  width: 90%;
+  margin: auto;
+}
+.card__picture {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  bottom: 3em;
+}
+.card__img{
+  width: 100%;
+  border-radius: 3%;
+}
+.card__texts {
+  margin: 10px 0;
+  max-height: 100%;
+}
+.card__title {
+  margin-bottom: 1em;
+}
+.card__paragraph {
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  height: 5rem;
+}
+.card__paragraph::-webkit-scrollbar {
+  display: none;
+}
+
+

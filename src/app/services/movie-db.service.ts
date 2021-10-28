@@ -1,11 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Movie } from 'src/models/movie.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieDBService {
 
-  token:string = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZjU4MGRlNGNhYjhhMWI3M2QxMDIzNWNjMjBkNWE4YSIsInN1YiI6IjVkOGQzNDllMTA5Y2QwMDAxOTNlZTY1NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p0hMRzmaKKGB8J6_39_dCZ5OeiCd6aI52rRLjMoQ82A'
+  getPopular: string = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1'
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+
+  getPopularMovies(){
+    return this.httpClient.get<any>(this.getPopular).toPromise();
+  }
+
+  getTopRatedMovies() {
+    return this.httpClient.get<any>('https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1').toPromise()
+  }
 }
