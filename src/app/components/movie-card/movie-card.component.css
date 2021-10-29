@@ -3,13 +3,13 @@
   height: 100%;
   width: 350px;
   padding-bottom: 3em;
-  background-color: whitesmoke;
+  background-color: rgba(27, 27, 27, 0.425);
 }
 .card__item:hover {
-  -webkit-box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
--moz-box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
-box-shadow: 0px 0px 22px -4px rgba(50,181,18,1);
-cursor: pointer;
+  -webkit-box-shadow: 0px 0px 22px -4px rgb(105, 105, 105);
+  -moz-box-shadow: 0px 0px 22px -4px rgb(105, 105, 105);
+  box-shadow: 0px 0px 22px -4px rgb(105, 105, 105);
+  cursor: pointer;
 }
 .card__content {
   width: 90%;
@@ -31,12 +31,18 @@ cursor: pointer;
 }
 .card__title {
   margin-bottom: 1em;
+  color: white;
+  font-weight: 600;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
 }
 .card__paragraph {
+  color: white;
   overflow: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   height: 5rem;
+  font-family: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2);
 }
 .card__paragraph::-webkit-scrollbar {
   display: none;

@@ -1,42 +1,54 @@
 import { MovieDBService } from './../../services/movie-db.service';
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/models/movie.model';
+import { Movie } from 'src/app/models/movie.model';
+import { MovieFilter } from 'src/app/models/movieFilter';
+import { MovieResult } from 'src/app/models/moveResult';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  popularMovies: Movie[] = []
-  topRatedMovies: Movie[] = []
+  popularMoviesResult : MovieResult = <MovieResult>{};
+  topRatedMoviesResults: MovieResult = <MovieResult>{};
+
+  popularMoviesFilter: MovieFilter = {};
+  topRatedMoviesFilter: MovieFilter = {};
+
   constructor(private movieService: MovieDBService) { }
 
-  ngOnInit(): void {
-    this.getPopularMovies()
-    this.getTopRatedMovies()
+  ngOnInit(): void 
+  {
+    this.getPopularMovies();
+    this.getTopRatedMovies();
   }
 
-getPopularMovies(){
-  this.movieService.getPopularMovies()
-      .then(async res => {
-        this.popularMovies = await res.results;
-        console.log(this.popularMovies)
-      })
-      .catch(err => {
-        console.log(err)
-      });
+private async getPopularMovies()
+{
+  try
+  {
+    this.popularMoviesResult = await this.movieService.getPopularMovies(this.popularMoviesFilter);
+  }
+  catch(err)
+  {
+    const msg = `Error loading popular movies , Code : ${err}`;
+    console.error(msg);
+  }
 }
 
-getTopRatedMovies() {
-  this.movieService.getTopRatedMovies()
-    .then(async res => {
-      this.topRatedMovies = await res.results
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
+  private async getTopRatedMovies() 
+  {
+    try
+    {
+      this.topRatedMoviesResults = await this.movieService.getTopRatedMovies(this.topRatedMoviesFilter);
+    }
+    catch(err)
+    {
+      const msg = `Error loading top rated movies , Code : ${err}`;
+      console.log(msg)
+    }
+    
+  }
 }
